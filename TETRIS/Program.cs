@@ -11,29 +11,32 @@ namespace TETRIS
         static void Main(string[] args)
         {
             bool[,] plansza = new bool[24,12];
-
-            plansza[0, 3] = true;
-            plansza[1, 3] = true;
-            plansza[1, 2] = true;
-            plansza[1, 4] = true;
-            for (int i = 0; i < plansza.GetLength(0) - 1; i++)
+            while(true)
             {
-                wyswietlStan(plansza);
-                String decyzja = Console.ReadLine();
-                int ruch = 0;
-                if (decyzja == "A" || decyzja == "a")
+                plansza[0, 3] = true;
+                plansza[1, 3] = true;
+                plansza[1, 2] = true;
+                plansza[1, 4] = true;
+                for (int i = 0; i < plansza.GetLength(0) - 1; i++)
                 {
-                    ruch = -1;
-                } 
-                else if (decyzja == "D" || decyzja == "d")
-                {
-                    ruch = +1;
+                    wyswietlStan(plansza);
+                    String decyzja = Console.ReadLine();
+                    int ruch = 0;
+                    if (decyzja == "A" || decyzja == "a")
+                    {
+                        ruch = -1;
+                    } 
+                    else if (decyzja == "D" || decyzja == "d")
+                    {
+                        ruch = +1;
+                    }
+                    else if (decyzja == "S" || decyzja == "s")
+                    {
+                        i--;
+                    }
+                    wDół(plansza, ruch);
                 }
-                else if (decyzja == "S" || decyzja == "s")
-                {
-                    i--;
-                }
-                wDół(plansza, ruch);
+
             }
             Console.ReadKey();
                 

@@ -5,3 +5,10 @@ C:\Users\Maksymilian\source\repos\TETRIS\TETRIS\obj\Debug\TETRIS.csprojAssemblyR
 C:\Users\Maksymilian\source\repos\TETRIS\TETRIS\obj\Debug\TETRIS.csproj.CoreCompileInputs.cache
 C:\Users\Maksymilian\source\repos\TETRIS\TETRIS\obj\Debug\TETRIS.exe
 C:\Users\Maksymilian\source\repos\TETRIS\TETRIS\obj\Debug\TETRIS.pdb
+C:\Users\Maksymilian\Source\Repos\tetris-git\TETRIS\bin\Debug\TETRIS.exe.config
+C:\Users\Maksymilian\Source\Repos\tetris-git\TETRIS\bin\Debug\TETRIS.exe
+C:\Users\Maksymilian\Source\Repos\tetris-git\TETRIS\bin\Debug\TETRIS.pdb
+C:\Users\Maksymilian\Source\Repos\tetris-git\TETRIS\obj\Debug\TETRIS.csprojAssemblyReference.cache
+C:\Users\Maksymilian\Source\Repos\tetris-git\TETRIS\obj\Debug\TETRIS.csproj.CoreCompileInputs.cache
+C:\Users\Maksymilian\Source\Repos\tetris-git\TETRIS\obj\Debug\TETRIS.exe
+C:\Users\Maksymilian\Source\Repos\tetris-git\TETRIS\obj\Debug\TETRIS.pdb
