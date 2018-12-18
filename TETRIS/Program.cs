@@ -10,13 +10,13 @@ namespace TETRIS
     {
         static void Main(string[] args)
         {
-            bool[,] plansza = new bool[24,12];
+            byte[,] plansza = new byte[24,12];
             while(true)
             {
-                plansza[0, 3] = true;
-                plansza[1, 3] = true;
-                plansza[1, 2] = true;
-                plansza[1, 4] = true;
+                plansza[0, 3] = 1;
+                plansza[1, 3] = 1;
+                plansza[1, 2] = 1;
+                plansza[1, 4] = 1;
                 for (int i = 0; i < plansza.GetLength(0) - 1; i++)
                 {
                     wyswietlStan(plansza);
@@ -42,34 +42,56 @@ namespace TETRIS
                 
         }
 
-        static void wDół(bool[,] plansza, int kierunek)
+        static void wDół(byte[,] plansza, int kierunek)
         {
+            bool ruchPoprawny = true;
             for (int i = plansza.GetLength(0) - 1; i >= 0; i--)
             {
                 for (int j = plansza.GetLength(1) - 1; j >= 0; j--)
                 {
                     int szerokosc = plansza.GetLength(1);
                     int nastepneJ = j + kierunek;
-                    if (plansza[i, j] == true && i + 1 < plansza.GetLength(0)
-                        && nastepneJ < szerokosc && nastepneJ >= 0  &&
-                        false == plansza[i + 1 , nastepneJ] )
+                    if (plansza[i, j] == 1)
                     {
-                        plansza[i + 1, nastepneJ] = true;
-                        plansza[i, j] = false;
+                        if (nastepneJ >= szerokosc || nastepneJ < 0)
+                            ruchPoprawny = false;
+                    }
+
+                }
+            }
+            
+            for (int i = plansza.GetLength(0) - 1; i >= 0 && ruchPoprawny; i--)
+            {
+                for (int j = plansza.GetLength(1) - 1; j >= 0; j--)
+                {
+                    int szerokosc = plansza.GetLength(1);
+                    int nastepneJ = j + kierunek;
+                    if (nastepneJ < szerokosc && nastepneJ >= 0)
+                    {
+                        if (plansza[i, j] == 1 && i + 1 < plansza.GetLength(0)
+                            && 0 == plansza[i + 1, nastepneJ])
+                        {
+                            plansza[i + 1, nastepneJ] = 1;
+                            plansza[i, j] = 0;
+                        }
+                        else if (plansza[i, j] == 1)
+                        {
+                            plansza[i, j] = 2;
+                        }
                     }
 
                 }
             }
         }
 
-        static void wyswietlStan(bool[,] plansza)
+        static void wyswietlStan(byte[,] plansza)
         {
             Console.Clear();
             for (int i = 0; i < plansza.GetLength(0); i++)
             {
                 for (int j = 0;  j<plansza.GetLength(1); j++)
                 {
-                    if(plansza[i,j] == true)
+                    if(plansza[i,j] != 0)
                     {
                         Console.Write("|X");
                     }
