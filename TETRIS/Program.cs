@@ -51,7 +51,8 @@ namespace TETRIS
                     int szerokosc = plansza.GetLength(1);
                     int nastepneJ = j + kierunek;
                     if (plansza[i, j] == true && i + 1 < plansza.GetLength(0)
-                        && nastepneJ < szerokosc && nastepneJ >= 0  && false == plansza[i + 1 , nastepneJ] )
+                        && nastepneJ < szerokosc && nastepneJ >= 0  &&
+                        false == plansza[i + 1 , nastepneJ] )
                     {
                         plansza[i + 1, nastepneJ] = true;
                         plansza[i, j] = false;
