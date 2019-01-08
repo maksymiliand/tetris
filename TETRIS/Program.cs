@@ -59,34 +59,60 @@ namespace TETRIS
                     if (plansza[i, j] == 1)
                     {
                         if (nastepneJ >= szerokosc || nastepneJ < 0)
+                        {
                             ruchPoprawny = false;
+                            break;
+                        }
+                        if (i + 1 < plansza.GetLength(0) && plansza[i + 1, nastepneJ] > 1)
+                        {
+                            ruchPoprawny = false;
+                            break;
+                        }
                     }
-
                 }
             }
-            
-            for (int i = plansza.GetLength(0) - 1; i >= 0 && ruchPoprawny; i--)
+
+            if (!ruchPoprawny) 
             {
-                for (int j = plansza.GetLength(1) - 1; j >= 0; j--)
+                for(int i = plansza.GetLength(0) - 1; i>=0 ; i--)
                 {
-                    int szerokosc = plansza.GetLength(1);
-                    int nastepneJ = j + kierunek;
-                    if (nastepneJ < szerokosc && nastepneJ >= 0)
+                    for(int j = plansza.GetLength(1) - 1; j >= 0; j--)
                     {
-                        if (plansza[i, j] == 1 && i + 1 < plansza.GetLength(0)
-                            && 0 == plansza[i + 1, nastepneJ])
-                        {
-                            plansza[i + 1, nastepneJ] = 1;
-                            plansza[i, j] = 0;
-                        }
-                        else if (plansza[i, j] == 1)
+                        if (plansza[i, j] == 1)
                         {
                             plansza[i, j] = 2;
                         }
                     }
-
                 }
+            } 
+            else
+            {
+                for (int i = plansza.GetLength(0) - 1; i >= 0; i--)
+                {
+                    for (int j = plansza.GetLength(1) - 1; j >= 0; j--)
+                    {
+                        int szerokosc = plansza.GetLength(1);
+                        int nastepneJ = j + kierunek;
+                        if (nastepneJ < szerokosc && nastepneJ >= 0)
+                        {
+                            if (plansza[i, j] == 1 && i + 1 < plansza.GetLength(0)
+                                && 0 == plansza[i + 1, nastepneJ])
+                            {
+                                plansza[i + 1, nastepneJ] = 1;
+                                plansza[i, j] = 0;
+                            }
+                            else if (plansza[i, j] == 1)
+                            {
+                                plansza[i, j] = 2;
+                            
+                            }
+                        }
+
+                    }
+                }
+
             }
+            
             return ruchPoprawny;
         }
 
