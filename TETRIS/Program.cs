@@ -34,7 +34,12 @@ namespace TETRIS
                     {
                         i--;
                     }
-                    wDół(plansza, ruch);
+                    bool ruchPoprawny = wDół(plansza, ruch);
+                    if (ruchPoprawny == false)
+                    {
+                        i--;
+                    }
+                    
                 }
 
             }
@@ -42,7 +47,7 @@ namespace TETRIS
                 
         }
 
-        static void wDół(byte[,] plansza, int kierunek)
+        static bool wDół(byte[,] plansza, int kierunek)
         {
             bool ruchPoprawny = true;
             for (int i = plansza.GetLength(0) - 1; i >= 0; i--)
@@ -82,6 +87,7 @@ namespace TETRIS
 
                 }
             }
+            return ruchPoprawny;
         }
 
         static void wyswietlStan(byte[,] plansza)
