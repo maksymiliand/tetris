@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TETRIS"
   ],
-  "SelectedNode": "\\TETRIS.sln",
+  "SelectedNode": "\\TETRIS\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

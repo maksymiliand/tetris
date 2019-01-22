@@ -60,8 +60,7 @@ namespace TETRIS
                     {
                         if (nastepneJ >= szerokosc || nastepneJ < 0)
                         {
-                            ruchPoprawny = false;
-                            break;
+                            return wDół(plansza, 0);
                         }
                         if (i + 1 < plansza.GetLength(0) && plansza[i + 1, nastepneJ] > 1)
                         {
